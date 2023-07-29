@@ -12,7 +12,7 @@ public class App implements Agenda {
     }
 
     private void conectarBanco(boolean postgres) throws SQLException {
-        File file = new File("C:/Backup/MEUSDO~1/GitHub/sandbox/Sandbox/agenda.db");
+        File file = new File("C:/Backup/MEUSDO~1/GitHub/sandbox/agenda.db");
         String url = String.format("jdbc:sqlite:%s", file);
 
         String user = null;
@@ -25,11 +25,12 @@ public class App implements Agenda {
         }
 
         connection = DriverManager.getConnection(url, user, password);
+        connection.setAutoCommit(false);
     }
 
 
     @Override
-    public Contato entrarContato() throws IOException {
+    public Contato digitarContato() throws IOException {
         Contato contato = new Contato();
 
         System.out.print("Nome: ");
@@ -118,6 +119,7 @@ public class App implements Agenda {
         preparedStatement.setString(3, contato.telefone);
         preparedStatement.execute();
         preparedStatement.close();
+        connection.commit();
 
         return novoContato;
     }
@@ -157,7 +159,7 @@ public class App implements Agenda {
     }
 
     private Contato cadastrarContato() throws IOException, SQLException {
-        Contato contato = entrarContato();
+        Contato contato = digitarContato();
         if (contato.nome.length() > 0) gravarContato(contato);
         return contato;
     }
