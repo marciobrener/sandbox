@@ -1,11 +1,13 @@
-import os, sys, tempfile
+import os
+import sys
+import tempfile
 from iagenda import IAgenda
 from agenda import Agenda
 from contato import Contato
 from util import capitalize
 
 def test_instanciar_agenda() -> None:
-    Agenda()
+    agenda: IAgenda = Agenda()
 
 def test_criar_contato_agenda() -> None:
     contato = Contato(
@@ -88,8 +90,8 @@ def test_instanciar_contato_nao_ok() -> None:
     assert result
 
 def test_capitalize() -> None:
-    print(capitalize('márcio brener costa'))
-    assert True
+    ok = capitalize('márcio brener costa') == 'Márcio Brener Costa'
+    assert ok
 
 def test_apagar_contato() -> None:
     contato = Contato(
