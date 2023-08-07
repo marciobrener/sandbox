@@ -19,3 +19,5 @@ function createSquare(config: SquareConfig): { color: string; area: number } {
    
   let mySquare = createSquare({ color: "black" })
   console.log(mySquare.color)
+
+  //linha adicionada em feature/javascript
