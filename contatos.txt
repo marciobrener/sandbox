@@ -1,0 +1,5 @@
+nome;telefone;email;nascimento
+Bill Gates;+1(01)7258-7265;billgates@microsoft.com;
+José da Silva;+55(61)98425-7265;josesilva@gmail.com;01/01/1960
+Márcio Brener Jesuino da Costa;+55(61)98425-7265;marciobrener@gmail.com;01/01/1960
+Cadastro com email errado;Telefone;email sem @;01/01/2020
