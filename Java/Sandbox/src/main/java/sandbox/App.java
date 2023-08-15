@@ -66,8 +66,9 @@ public class App implements Agenda {
         CREATE INDEX Nome ON Agenda (Nome);
         """;
 
-        ResultSet resultSet = databaseMetaData.getTables(null, null, "%Agenda", null);
-        if (!resultSet.next()) connection.createStatement().execute(sql);
+        ResultSet resultSet = databaseMetaData.getTables(null, null, "%agenda", null);
+        boolean exists = resultSet.next();
+        if (!exists) connection.createStatement().execute(sql);
     }
 
     public void carregarContatos(String file) throws Exception {
